@@ -44,7 +44,8 @@ function playGame() {
     let computerScore = 0;
     for (let i = 0; i < 5; ++i) {
         let playerSelection = prompt("Rock, Paper or Scissors? ");
-        let result = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection, playerScore, computerScore);
         playerScore += result[1];
         computerScore += result[2];
 
