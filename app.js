@@ -9,7 +9,12 @@ function getComputerChoice() {
     return CHOICES[choice].toLowerCase();
 }
 
-function playRound(playerSelection, computerSelection, playerScore, computerScore) {
+function playRound(
+    playerSelection,
+    computerSelection,
+    playerScore,
+    computerScore) {
+
     let rules = {};
     rules["rock"] = "scissors"; // rock beats scissors
     rules["paper"] = "rock"; // paper beats rock
@@ -21,19 +26,25 @@ function playRound(playerSelection, computerSelection, playerScore, computerScor
 
 
     if (rules[playerSelectionLowerCase] === rules[computerSelection]) {
-        let tieString = `It's a tie! ${playerSelectionPretty} and ${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
+        let tieString =
+            `It's a tie! ${playerSelectionPretty} and `
+            + `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [tieString, 0, 0];
     }
     else if (rules[playerSelectionLowerCase] === computerSelection) {
         ++playerScore;
-        let youWinString = `You win! ${playerSelectionPretty} beats ${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
+        let youWinString =
+            `You win! ${playerSelectionPretty} beats `
+            + `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [youWinString, 1, 0];
     }
     else if (rules[computerSelection] === playerSelectionLowerCase) {
         ++computerScore;
-        let youLoseString = `You lose! ${computerSelectionPretty} beats ${playerSelectionPretty}. ${playerScore} - ${computerScore}`;
+        let youLoseString =
+            `You lose! ${computerSelectionPretty} beats `
+            + `${playerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [youLoseString, 0, 1];
     }
@@ -45,7 +56,12 @@ function playGame() {
     for (let i = 0; i < 5; ++i) {
         let playerSelection = prompt("Rock, Paper or Scissors? ");
         let computerSelection = getComputerChoice();
-        let result = playRound(playerSelection, computerSelection, playerScore, computerScore);
+        let result = playRound(
+            playerSelection,
+            computerSelection,
+            playerScore,
+            computerScore
+        );
         playerScore += result[1];
         computerScore += result[2];
 
