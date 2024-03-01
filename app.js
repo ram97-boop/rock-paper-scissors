@@ -27,24 +27,24 @@ function playRound(
 
     if (rules[playerSelectionLowerCase] === rules[computerSelection]) {
         let tieString =
-            `It's a tie! ${playerSelectionPretty} and `
-            + `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
+            `It's a tie! ${playerSelectionPretty} and ` +
+            `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [tieString, 0, 0];
     }
     else if (rules[playerSelectionLowerCase] === computerSelection) {
         ++playerScore;
         let youWinString =
-            `You win! ${playerSelectionPretty} beats `
-            + `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
+            `You win! ${playerSelectionPretty} beats ` +
+            `${computerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [youWinString, 1, 0];
     }
     else if (rules[computerSelection] === playerSelectionLowerCase) {
         ++computerScore;
         let youLoseString =
-            `You lose! ${computerSelectionPretty} beats `
-            + `${playerSelectionPretty}. ${playerScore} - ${computerScore}`;
+            `You lose! ${computerSelectionPretty} beats ` +
+            `${playerSelectionPretty}. ${playerScore} - ${computerScore}`;
 
         return [youLoseString, 0, 1];
     }
