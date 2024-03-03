@@ -51,32 +51,32 @@ function playRound(
 }
 
 function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; ++i) {
-        let playerSelection = prompt("Rock, Paper or Scissors? ");
-        let computerSelection = getComputerChoice();
-        let result = playRound(
-            playerSelection,
-            computerSelection,
-            playerScore,
-            computerScore
-        );
-        playerScore += result[1];
-        computerScore += result[2];
+    // let playerScore = 0;
+    // let computerScore = 0;
+    // for (let i = 0; i < 5; ++i) {
+    //     let playerSelection = prompt("Rock, Paper or Scissors? ");
+    //     let computerSelection = getComputerChoice();
+    //     let result = playRound(
+    //         playerSelection,
+    //         computerSelection,
+    //         playerScore,
+    //         computerScore
+    //     );
+    //     playerScore += result[1];
+    //     computerScore += result[2];
 
-        console.log(result[0]);
-    }
+    //     console.log(result[0]);
+    // }
 
-    if (playerScore === computerScore) {
-        console.log("The game is a tie!");
-    }
-    else if (playerScore > computerScore) {
-        console.log("You win the game!");
-    }
-    else {
-        console.log("You lose the game!");
-    }
+    // if (playerScore === computerScore) {
+    //     console.log("The game is a tie!");
+    // }
+    // else if (playerScore > computerScore) {
+    //     console.log("You win the game!");
+    // }
+    // else {
+    //     console.log("You lose the game!");
+    // }
 }
 
 playGame();
