@@ -2,11 +2,26 @@ body {
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
 }
 
-/* .buttons {
+.display {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p {
+    text-align: center;
+}
+
+.buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-} */
+}
