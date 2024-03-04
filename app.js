@@ -92,12 +92,15 @@ function playGame() {
         if (roundNumber === 6) {
             if (playerScore === computerScore) {
                 console.log("The game is a tie!");
+                displayResult("The game is a tie!");
             }
             else if (playerScore > computerScore) {
                 console.log("You win the game!");
+                displayResult("You win the game!");
             }
             else {
                 console.log("You lose the game!");
+                displayResult("You lose the game!");
             }
 
             roundNumber++;
@@ -108,6 +111,11 @@ function playGame() {
 function displayScore(playerScore, computerScore) {
     let scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = `${playerScore} - ${computerScore}`;
+}
+
+function displayResult(result) {
+    let resultDisplay = document.getElementById("result");
+    resultDisplay.textContent = result;
 }
 
 playGame();
