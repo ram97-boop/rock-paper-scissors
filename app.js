@@ -90,6 +90,7 @@ function playGame() {
             computerScore += result[2];
             roundNumber++;
 
+            displayScore(playerScore, computerScore);
             console.log(result[0])
         }
 
@@ -107,6 +108,11 @@ function playGame() {
             roundNumber++;
         }
     }
+}
+
+function displayScore(playerScore, computerScore) {
+    let scoreDisplay = document.querySelector("#score");
+    scoreDisplay.textContent = `${playerScore} - ${computerScore}`;
 }
 
 playGame();
