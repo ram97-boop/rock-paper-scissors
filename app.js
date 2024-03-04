@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const CHOICES = ["Rock", "Paper", "Scissors"];
 let indices = {};
 indices["rock"] = 0;
@@ -51,8 +53,9 @@ function playRound(
 }
 
 function playGame() {
-    // let playerScore = 0;
-    // let computerScore = 0;
+    let roundNumber = 1;
+    let playerScore = 0;
+    let computerScore = 0;
     // for (let i = 0; i < 5; ++i) {
     //     let playerSelection = prompt("Rock, Paper or Scissors? ");
     //     let computerSelection = getComputerChoice();
@@ -68,15 +71,42 @@ function playGame() {
     //     console.log(result[0]);
     // }
 
-    // if (playerScore === computerScore) {
-    //     console.log("The game is a tie!");
-    // }
-    // else if (playerScore > computerScore) {
-    //     console.log("You win the game!");
-    // }
-    // else {
-    //     console.log("You lose the game!");
-    // }
+    let buttonSection = document.querySelector(".buttons");
+
+    buttonSection.addEventListener("click", getInputAndPlayRound)
+
+    function getInputAndPlayRound(event) {
+        let target = event.target;
+
+        // ignore clicks on the div outside the buttons
+        if (target.nodeName === "BUTTON" && roundNumber < 6) {
+            let result = playRound(
+                target.id,
+                getComputerChoice(),
+                playerScore,
+                computerScore
+            )
+            playerScore += result[1];
+            computerScore += result[2];
+            roundNumber++;
+
+            console.log(result[0])
+        }
+
+        if (roundNumber === 6) {
+            if (playerScore === computerScore) {
+                console.log("The game is a tie!");
+            }
+            else if (playerScore > computerScore) {
+                console.log("You win the game!");
+            }
+            else {
+                console.log("You lose the game!");
+            }
+
+            roundNumber++;
+        }
+    }
 }
 
 playGame();
