@@ -26,6 +26,7 @@ function playRound(
     let playerSelectionPretty = CHOICES[indices[playerSelectionLowerCase]];
     let computerSelectionPretty = CHOICES[indices[computerSelection]];
 
+    displayChoices(playerSelectionPretty, computerSelectionPretty);
 
     if (rules[playerSelectionLowerCase] === rules[computerSelection]) {
         let tieString =
@@ -50,6 +51,14 @@ function playRound(
 
         return [youLoseString, 0, 1];
     }
+}
+
+function displayChoices(playerChoice, computerChoice) {
+    const playerDisplay = document.querySelector("#player p");
+    const computerDisplay = document.querySelector("#computer p");
+
+    playerDisplay.textContent = playerChoice;
+    computerDisplay.textContent = computerChoice;
 }
 
 function playGame() {
@@ -111,7 +120,7 @@ function playGame() {
 }
 
 function displayScore(playerScore, computerScore) {
-    let scoreDisplay = document.querySelector("#score");
+    let scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = `${playerScore} - ${computerScore}`;
 }
 
